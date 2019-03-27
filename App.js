@@ -1,21 +1,20 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import {Router, Scene, Stack, Actions} from 'react-native-router-flux';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
-}
+import Login from './components/LoginScreen';
+import Home from './components/Home';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+const Example = () => (
+
+  <Router>
+    <Stack key="root">
+      <Scene key="login" component={Login} title="Login"/>
+      <Scene key="home" component={Home} title="Home"/>
+     
+    </Stack>
+  </Router>
+);
+
+export default Example;
