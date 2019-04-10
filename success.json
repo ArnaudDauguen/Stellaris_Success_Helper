@@ -1,17 +1,19 @@
 [
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Stellar performance",
+    "description" : "Has defeated the Stellarite devourer and chosen to make it a trophy",
     "conditions": {
       "species": [],
       "government": [],
-      "ethic": [],
+      "ethic": ["Xenophobe", "Militariste"],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Last best hope",
+    "description": "Lead the non-aligned powers to victory against an awakened empire.",
     "conditions": {
       "species": [],
       "government": [],
@@ -20,28 +22,31 @@
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Slave to the system",
+    "description": "As an authoritarian Empire with at least 500 Pops, have at least 200 enslaved Pops",
     "conditions": {
       "species": [],
       "government": [],
-      "ethic": [],
+      "ethic": ["Autoritaire"],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Suffer not the alien",
+    "description": "As a xenophobic empire, purge all other sentient species in the galaxy",
     "conditions": {
       "species": [],
       "government": [],
-      "ethic": [],
+      "ethic": ["Xenophobe"],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Tourist trap",
+    "description": "Own a planet with at least 10 different species on it",
     "conditions": {
       "species": [],
       "government": [],
@@ -50,58 +55,64 @@
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Planned obsolesence",
+    "description": "As a materialist empire, have at least 75% of the pops in your empire be robotic in an empire with at least 200 pops",
     "conditions": {
       "species": [],
       "government": [],
-      "ethic": [],
+      "ethic": ["Materialiste"],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Peacekeeper",
+    "description": "As a pacifistic empire, be at peace for 200 consecutive years (crises do not count as wars.)",
     "conditions": {
       "species": [],
       "government": [],
-      "ethic": [],
+      "ethic": ["Pacifiste"],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Very open borders",
+    "description": "As a xenophilic empire, have migration treaties with at least 10 other empires",
     "conditions": {
       "species": [],
       "government": [],
-      "ethic": [],
+      "ethic": ["Xénophile"],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Deus vult",
+    "description": "As a spiritualistic empire, own 4 holy worlds",
     "conditions": {
       "species": [],
       "government": [],
-      "ethic": [],
+      "ethic": ["Spiritualiste"],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Payback",
+    "description": "As a humanoid species, infiltrate the homeworld of pre-FTL reptilians",
     "conditions": {
-      "species": [],
+      "species": ["Humanoide"],
       "government": [],
       "ethic": [],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Outside context",
+    "description": "Invade pre-FTL Earth while it is in the midst of a world war",
     "conditions": {
       "species": [],
       "government": [],
@@ -110,48 +121,53 @@
     }
   },
   {
-    "achieved": 1,
+    "achieved": false,
     "name": "Beyond the veil",
+    "description": "Breach the Shroud",
     "conditions": {
       "species": [],
       "government": [],
-      "ethic": [],
-      "ascension": []
+      "ethic": ["Spiritualiste"],
+      "ascension": ["Transcendence Ascension Perk"]
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Like tears in rain",
+    "description": "Evolve into perfect, immortal machines",
     "conditions": {
       "species": [],
       "government": [],
-      "ethic": [],
-      "ascension": []
+      "ethic": ["Materialiste"],
+      "ascension": ["Synthetic Evolution Ascension Perk"]
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Controlled evolution",
+    "description": "Genetically modify a species to possess traits worth 7 points",
     "conditions": {
       "species": [],
       "government": [],
       "ethic": [],
-      "ascension": []
+      "ascension": ["Evolutionary Mastery Ascension Perk"]
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Towards utopia",
+    "description": "As an Egalitarian empire, have at least 500 pops living under Utopian living conditions in your empire",
     "conditions": {
       "species": [],
       "government": [],
-      "ethic": [],
+      "ethic": ["Egalistaire"],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Xenophage",
+    "description": "Keep at least 5 different species as livestock in your Empire",
     "conditions": {
       "species": [],
       "government": [],
@@ -160,48 +176,53 @@
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Rise of the machines",
+    "description": "As a Determined Exterminator, conquer or eliminate all biological Empires in the galaxy",
     "conditions": {
       "species": [],
-      "government": [],
+      "government": ["Determined Exterminator"],
       "ethic": [],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Distinctiveness added",
+    "description": "As a Driven Assimilator, own cyborg Pops of at least 5 different species",
     "conditions": {
       "species": [],
-      "government": [],
+      "government": ["Driven Assimilator"],
       "ethic": [],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Retirement home",
+    "description": "As a Rogue Servitor, own at least 10 Pops from Fallen Empires",
     "conditions": {
       "species": [],
-      "government": [],
+      "government": ["Rogue Servitor"],
       "ethic": [],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Planet of the mechs",
+    "description": "Terraform a planet into a Machine World",
     "conditions": {
       "species": [],
       "government": [],
-      "ethic": [],
+      "ethic": ["Materialiste"],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Exterminatus",
+    "description": "Use a World Cracker to destroy another Empire's capital planet",
     "conditions": {
       "species": [],
       "government": [],
@@ -210,21 +231,23 @@
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "Franchising",
+    "description": "As a Corporate empire, have a branch office on 5 different empires' capitals",
     "conditions": {
       "species": [],
-      "government": [],
+      "government": ["Corporate"],
       "ethic": [],
       "ascension": []
     }
   },
   {
-    "achieved": 0,
+    "achieved": false,
     "name": "We are legion",
+    "description": "Be a biological Hive Mind with at least 1000 drone Pops",
     "conditions": {
-      "species": [],
-      "government": [],
+      "species": ["Biologique"],
+      "government": ["Hive Mind"],
       "ethic": [],
       "ascension": []
     }
