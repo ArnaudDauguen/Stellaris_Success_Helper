@@ -7,7 +7,8 @@ import {AsyncStorage} from 'react-native';
 export default class Home extends Component {
 
     state = {
-        successList: [],
+        successAvailable: [],
+        selectedSuccess: [],
         backupSuccessList: [],
         conditions: {
             "species": [],
@@ -26,8 +27,8 @@ export default class Home extends Component {
     // puis on fera le rendu avec un truc 'filter'
 
     getLocalAchievmentsDatas = async () => {
-        this.state.successList = require('../success.json');
-        this.state.backupSuccessList = this.state.successList;
+        this.state.successAvailable = require('../success.json');
+        this.state.backupSuccessList = this.state.successAvailable;
     }
 
     putApiInfos = () => {
@@ -41,13 +42,13 @@ export default class Home extends Component {
 
                 //la date
                 const date = new Date(unlocktime * 1000);
-                storedSuccess.unlocktime = achieved != 0 ? date.toDateString() : 'Never complete';
+                storedSuccess.unlocktime = achieved != 0 ? date.toDateString() : 'Never completed';
             }
         }
     }
 
     getSuccessByName = (name) => {
-        for(let success of this.state.successList){
+        for(let success of this.state.successAvailable){
             if(success.name === name){
                 return success;
             }
@@ -65,6 +66,11 @@ export default class Home extends Component {
     }
 
     successMatching = (success) => {
+        for(let selectedSuccess of this.state.selectedSuccess){
+            if(success === selectedSuccess){
+                return false;
+            }
+        }
         if(success.conditions.ethic.length > 0){
             for (let ethic of success.conditions.ethic){
                 for(let conditionEthic of this.state.conditions.ethic) {
@@ -74,32 +80,51 @@ export default class Home extends Component {
                 }
             }
         }
+            
         return false;
     }
 
-    
-    updateFilter = (success) => {
 
-        console.log("updating list...")
+    addFilter = (success) => {
+        this.state.selectedSuccess.push(success);
 
-        // update conditions
-        for (let species of success.conditions.species){
-            this.state.conditions.species.push(species);
-        }
-        for (let government of success.conditions.government){
-            this.state.conditions.government.push(government);
-        }
-        for (let ethic of success.conditions.ethic){
-            this.state.conditions.ethic.push(ethic);
-        }
-        for (let ascension of success.conditions.ascension){
-            this.state.conditions.ascension.push(ascension);
-        }
+        this.updateConditions();
+        this.updateList();
+    }
 
+
+    removeFilter = (success) => {
+        this.state.selectedSuccess = this.state.selectedSuccess.filter(item => item != success);
+
+        this.updateConditions();
+        this.updateList();
+    }
+
+    updateConditions = () => {
+        this.state.conditions = {"species": [], "government": [], "ethic": [], "ascension": []};
+        for(let success of this.state.selectedSuccess){
+            for (let species of success.conditions.species){
+                this.state.conditions.species.push(species);
+            }
+            for (let government of success.conditions.government){
+                this.state.conditions.government.push(government);
+            }
+            for (let ethic of success.conditions.ethic){
+                this.state.conditions.ethic.push(ethic);
+            }
+            for (let ascension of success.conditions.ascension){
+                this.state.conditions.ascension.push(ascension);
+            }
+        }
+    }
+
+
+    updateList = () => {
         this.setState(previousState => { 
             let newSuccessList = previousState.backupSuccessList.filter(success => this.successMatching(success));
-            return {successList: newSuccessList};
+            return {successAvailable: newSuccessList};
         });
+
     }
 
 
@@ -111,20 +136,31 @@ export default class Home extends Component {
     }
 
     render(){
-    
-
-        console.log('render');
-        console.log(this.state.successList);
 
         return(
-            <React.Fragment >
+            <React.Fragment>
                 <FlatList
-                    style = {flex = 1}
                     keyExtractor = {(item, index) => item.name}
-                    data={this.state.successList}
+                    data={this.state.selectedSuccess}
                     renderItem={({item}) => (
                         <TouchableHighlight
-                            onPress={() => this.updateFilter(item)}
+                            onPress={() => this.removeFilter(item)}
+                        >
+                            <View style = {styles.successContainer}>
+                                <Text style = {styles.successDescription}> {item.name + '\n' + item.description} </Text>
+                                <Text style = {styles.successChecked}> {item.unlocktime} </Text>
+                            </View>
+                        </TouchableHighlight>
+                    )}
+                />
+
+
+                <FlatList
+                    keyExtractor = {(item, index) => item.name}
+                    data={this.state.successAvailable}
+                    renderItem={({item}) => (
+                        <TouchableHighlight
+                            onPress={() => this.addFilter(item)}
                         >
                             <View style = {styles.successContainer}>
                                 <Text style = {styles.successDescription}> {item.name + '\n' + item.description} </Text>
@@ -140,21 +176,28 @@ export default class Home extends Component {
 
 
 const styles = StyleSheet.create({
+    global: {
+        // flex: 1,
+        // backgroundColor: '#282E36',
+    },
     successContainer: {
       flex: 1,
       flexDirection: 'row',
       backgroundColor: '#fafafa',
+    //   backgroundColor: '#111923',
       marginBottom: 5,
       marginTop: 5,
     },
     successDescription: {
+        // color: '#FCFCFC',
         flex: 3,
         marginTop: 2,
         marginBottom: 2,
-        marginLeft: 2,
-        marginRight: 2,
+        marginLeft: 5,
+        marginRight: 5,
     },
     successChecked: {
+        // color: '#FCFCFC',
         flex: 1,
         marginTop: 2,
         marginBottom: 2,
